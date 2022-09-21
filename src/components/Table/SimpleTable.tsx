@@ -8,8 +8,8 @@ type ColumnConfig<T extends object> = {
 type Props<T extends object> = {
   data: T[];
   columns: ColumnConfig<T>[];
-  tableContainerProp: TableContainerProps;
-  tableProp: TableProps;
+  tableContainerProp?: TableContainerProps;
+  tableProp?: TableProps;
 };
 export const SimpleTable = <T extends object>(props: Props<T>) => {
   const { data, columns, tableContainerProp, tableProp } = props;
