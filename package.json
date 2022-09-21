@@ -1,10 +1,12 @@
 {
-  "name": "my-lib-react",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@charon1212/my-lib-react",
+  "version": "0.0.1",
+  "description": "My react library.",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublishOnly": "tsc",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -12,7 +14,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/charon1212/my-lib-react/issues"
   },
