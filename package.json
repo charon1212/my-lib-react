@@ -1,6 +1,6 @@
 {
   "name": "@charon1212/my-lib-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "My react library.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -8,6 +8,12 @@
     "prepublishOnly": "tsc",
     "build": "tsc"
   },
+  "files": [
+    "build",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/charon1212/my-lib-react.git"
