@@ -7,3 +7,7 @@
 ## [1.5.0] - 2022-12-13
 
 - [useCheckBox.tsx](./src/muiWrapper/useCheckBox.tsx)追加。
+
+## [1.6.0] - 2022-12-14
+
+- [SimpleSelectList.tsx](./src/components/SimpleSelectList/SimpleSelectList.tsx)追加。
