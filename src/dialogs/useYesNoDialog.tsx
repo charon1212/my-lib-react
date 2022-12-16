@@ -1,5 +1,6 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
+import { Button } from '@mui/material';
 import { useState } from 'react';
+import { DialogBase } from '../components/DialogBase/DialogBase';
 
 type YesNoDialogParam<Context extends any> = {
   title?: string;
@@ -29,31 +30,32 @@ export const useYesNoDialog = <Context extends any = never>(param: YesNoDialogPa
 
   const yesNoDialog = (
     <>
-      <Dialog
+      <DialogBase
         open={open}
         onClose={() => {
           if (onClickNo) onClickNo(closeYesNoDialog, context!);
         }}
-      >
-        {title ? <DialogTitle>{title}</DialogTitle> : ''}
-        <DialogContent>{message}</DialogContent>
-        <DialogActions>
-          <Button
-            onClick={() => {
-              if (onClickYes) onClickYes(closeYesNoDialog, context!);
-            }}
-          >
-            Yes
-          </Button>
-          <Button
-            onClick={() => {
-              if (onClickNo) onClickNo(closeYesNoDialog, context!);
-            }}
-          >
-            No
-          </Button>
-        </DialogActions>
-      </Dialog>
+        title={title}
+        content={message}
+        actions={
+          <>
+            <Button
+              onClick={() => {
+                if (onClickYes) onClickYes(closeYesNoDialog, context!);
+              }}
+            >
+              Yes
+            </Button>
+            <Button
+              onClick={() => {
+                if (onClickNo) onClickNo(closeYesNoDialog, context!);
+              }}
+            >
+              No
+            </Button>
+          </>
+        }
+      />
     </>
   );
 

@@ -11,3 +11,7 @@
 ## [1.6.0] - 2022-12-14
 
 - [SimpleSelectList.tsx](./src/components/SimpleSelectList/SimpleSelectList.tsx)追加。
+
+## [1.7.0] - 2022-12-17
+
+- [DialogBase.tsx](./src/components/DialogBase/DialogBase.tsx)追加。
