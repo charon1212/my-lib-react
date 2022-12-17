@@ -1,5 +1,13 @@
-import { Dialog, DialogActions, DialogContent, DialogTitle, SxProps } from '@mui/material';
-import { Theme } from '@mui/system';
+import {
+  Dialog,
+  DialogActions,
+  DialogActionsProps,
+  DialogContent,
+  DialogContentProps,
+  DialogProps,
+  DialogTitle,
+  DialogTitleProps,
+} from '@mui/material';
 
 type Props = {
   title?: React.ReactNode;
@@ -7,21 +15,21 @@ type Props = {
   actions?: React.ReactNode;
   open: boolean;
   onClose?: () => void;
-  sx?: {
-    dialog?: SxProps<Theme>;
-    dialogTitle?: SxProps<Theme>;
-    dialogContent?: SxProps<Theme>;
-    dialogActions?: SxProps<Theme>;
+  props?: {
+    dialog?: DialogProps;
+    dialogTitle?: DialogTitleProps;
+    dialogContent?: DialogContentProps;
+    dialogActions?: DialogActionsProps;
   };
 };
 export const DialogBase = (props: Props) => {
-  const { title, content, actions, open, onClose, sx } = props;
+  const { title, content, actions, open, onClose } = props;
   return (
     <>
-      <Dialog open={open} onClose={onClose} sx={sx?.dialog}>
-        {title ? <DialogTitle sx={sx?.dialogTitle}>{title}</DialogTitle> : ''}
-        {content ? <DialogContent sx={sx?.dialogContent}>{content}</DialogContent> : ''}
-        {actions ? <DialogActions sx={sx?.dialogActions}>{actions}</DialogActions> : ''}
+      <Dialog open={open} onClose={onClose} {...props.props?.dialog}>
+        {title ? <DialogTitle {...props.props?.dialogTitle}>{title}</DialogTitle> : ''}
+        {content ? <DialogContent {...props.props?.dialogContent}>{content}</DialogContent> : ''}
+        {actions ? <DialogActions {...props.props?.dialogActions}>{actions}</DialogActions> : ''}
       </Dialog>
     </>
   );
