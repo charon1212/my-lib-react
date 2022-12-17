@@ -16,10 +16,10 @@ type Props = {
   open: boolean;
   onClose?: () => void;
   props?: {
-    dialog?: DialogProps;
-    dialogTitle?: DialogTitleProps;
-    dialogContent?: DialogContentProps;
-    dialogActions?: DialogActionsProps;
+    dialog?: Partial<DialogProps>;
+    dialogTitle?: Partial<DialogTitleProps>;
+    dialogContent?: Partial<DialogContentProps>;
+    dialogActions?: Partial<DialogActionsProps>;
   };
 };
 export const DialogBase = (props: Props) => {
