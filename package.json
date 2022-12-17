@@ -1,6 +1,6 @@
 {
   "name": "@charon1212/my-lib-react",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "My react library.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
