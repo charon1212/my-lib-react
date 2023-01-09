@@ -19,3 +19,7 @@
 ## [1.8.0] - 2022-12-17
 
 - [MyAutoComplete.tsx](./src/components/AutoComplete/MyAutoComplete.tsx)追加。
+
+## [1.9.0] - 2023-01-09
+
+- [MyAutoComplete.tsx](./src/util/asyncFlag.ts)追加。
