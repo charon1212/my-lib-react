@@ -7,6 +7,7 @@ export * from './components/SimpleSelectList/SimpleSelectList';
 
 export * from './dialogs/useYesNoDialog';
 
+export * from './hooks/useScroll';
 export * from './hooks/useTextField';
 
 export * from './muiWrapper/useCheckBox';
