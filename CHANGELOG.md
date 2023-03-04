@@ -27,3 +27,7 @@
 ## [1.10.0] - 2023-02-28
 
 - [createStateContext.tsx](./src/util/createStateContext.tsx)追加。
+
+## [1.11.0] - 2023-03-04
+
+- [useScroll.tsx](./src/hooks/useScroll.tsx)追加。
