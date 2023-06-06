@@ -1,4 +1,5 @@
-import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from 'react';
+import { useEffect } from 'react';
+import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState, EffectCallback } from 'react';
 
 type Context<State extends unknown> = [state: State, setState: Dispatch<SetStateAction<State>>];
 /**
@@ -6,7 +7,11 @@ type Context<State extends unknown> = [state: State, setState: Dispatch<SetState
  *
  * ```tsx
  * // UserContext.tsx
- * const [ UserContextProvider, useUserContext ] = createStateContext({name: '', age: 0});
+ * const [ UserContextProvider, useUserContext ] = createStateContext({name: '', age: 0}, (setUser) => {
+ *   let flag = true;
+ *   fetchUser().then((user) => { flag && setUser(user) });
+ *   return () => { flag = false; };
+ * });
  * export { UserContextProvider, useUserContext };
  *
  * // App.tsx
@@ -29,10 +34,15 @@ type Context<State extends unknown> = [state: State, setState: Dispatch<SetState
  * ```
  *
  */
-export const createStateContext = <State extends unknown>(initialState: State) => {
+export const createStateContext = <State extends unknown>(initialState: State, initializer?: (setter: Dispatch<SetStateAction<State>>) => ReturnType<EffectCallback>) => {
   const context = createContext<Context<State>>([initialState, () => {}]);
-  const ContextProvider = ({ children }: { children: ReactNode }) => {
+  const ContextProvider = ({ children, initialize }: { children: ReactNode; initialize?: boolean }) => {
     const [state, setState] = useState<State>(initialState);
+    useEffect(() => {
+      if (initialize && initializer) {
+        return initializer(setState);
+      }
+    }, []);
     return <context.Provider value={[state, setState]}>{children}</context.Provider>;
   };
   const useContextState = () => useContext(context);

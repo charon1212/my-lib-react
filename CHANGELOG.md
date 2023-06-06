@@ -31,3 +31,7 @@
 ## [1.11.0] - 2023-03-04
 
 - [useScroll.tsx](./src/hooks/useScroll.tsx)追加。
+
+## [1.12.0] - 2023-06-06
+
+- [createStateContext.tsx](./src/util/createStateContext.tsx)に初期化機能を追加。
