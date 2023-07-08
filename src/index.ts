@@ -4,6 +4,7 @@ export * from './components/sample/Sample';
 export * from './components/Tabs/TabComponent';
 export * from './components/Table/SimpleTable';
 export * from './components/SimpleSelectList/SimpleSelectList';
+export * from './components/FlexDiv/FlexDiv';
 
 export * from './dialogs/useYesNoDialog';
 
