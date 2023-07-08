@@ -5,7 +5,7 @@ type Props = {
   divprop?: Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'style'>;
   style?: React.CSSProperties;
   /** isContainer - trueにすると、styleに`{display:'flex'}`を設定する。 */
-  container: boolean;
+  container?: boolean;
   /** styleContainer - コンテナに関するCSSスタイル */
   styleContainer?: {
     /**
@@ -137,7 +137,7 @@ type Props = {
  * Flexに関するCSSをまとめたdiv要素のカスタマイズ部品。各propsにドキュメントコメントを割り当てている。
  */
 export const FlexDiv = (props: Props) => {
-  const { divprop, children, container: isContainer, style, styleContainer, styleItem } = props;
+  const { divprop, children, container, style, styleContainer, styleItem } = props;
   const direction = styleContainer?.direction;
   const reverse = styleContainer?.reverse;
   const wrap = styleContainer?.wrap;
@@ -148,7 +148,7 @@ export const FlexDiv = (props: Props) => {
     <>
       <div
         style={{
-          display: isContainer ? 'flex' : undefined,
+          display: container ? 'flex' : undefined,
           flexDirection: direction === 'column' ? (reverse ? 'column' : 'column-reverse') : reverse ? 'row-reverse' : 'row',
           flexWrap: wrap || undefined,
           justifyContent: alignHorizontal,
