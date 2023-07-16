@@ -149,7 +149,7 @@ export const FlexDiv = (props: Props) => {
       <div
         style={{
           display: container ? 'flex' : undefined,
-          flexDirection: direction === 'column' ? (reverse ? 'column' : 'column-reverse') : reverse ? 'row-reverse' : 'row',
+          flexDirection: direction === 'column' ? (reverse ? 'column-reverse' : 'column') : reverse ? 'row-reverse' : 'row',
           flexWrap: wrap || undefined,
           justifyContent: alignHorizontal,
           alignItems: alignVertical,
